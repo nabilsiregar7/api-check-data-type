@@ -1,4 +1,6 @@
 import requests
+import json
+from jsonschema import validate
 
 # Define the expected schema
 expected_schema = {
@@ -16,3 +18,10 @@ expected_schema = {
 url = "https://jsonplaceholder.typicode.com/posts"
 response = requests.get(url)
 data = response.json()
+
+# Validate the response against the schema
+try:
+    validate(data, expected_schema)
+    print("API response matches the expected data type.")
+except Exception as e:
+    print("API response does not match the expected data type: {str(e)}")
