@@ -4,6 +4,13 @@ import requests
 api_url = "https://jsonplaceholder.typicode.com/posts"
 response = requests.get(api_url)
 
+# Check if the API request was successful
+if response.status_code == 200:
+    api_response_data = response.json()
+else:
+    print(f"API request failed with status code {response.status_code}")
+    api_response_data = None
+
 # Inputted payload data
 input_payload = {
     "title": "recommendation",
