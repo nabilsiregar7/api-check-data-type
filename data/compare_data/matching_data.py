@@ -6,7 +6,7 @@ from jsonschema import validate
 expected_schema = {
     "type": "object",
     "properties": {
-        "userId": {"type": "string"},
+        "userId": {"type": "integer"},
         "id": {"type": "integer"},
         "title": {"type": "string"},
         "body": {"type": "string"}
